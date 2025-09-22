@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azmi — IT Enthusiast</title>
+  <meta name="description" content="Portfolio Azmi: fokus Database, Cloud Computing, Quality Assurance (QA)." />
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Azmi - IT Enthusiast (DB • Cloud • QA)" />
+  <meta property="og:description"
+    content="Project Lead MAMACARE — fokus Database, Cloud Computing, dan Quality Assurance." />
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=800&auto=format&fit=crop" />
+  <meta property="og:url" content="https://Azmi.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Azmi — IT Enthusiast" />
+  <meta name="twitter:description" content="Fokus Database • Cloud • QA. Project Lead MAMACARE." />
+  <meta name="twitter:image"
+    content="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=800&auto=format&fit=crop" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: { inter: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: {
+            brand: {
+              DEFAULT: "#6366F1",  /* indigo-500 */
+              50: "#EEF2FF",
+              100: "#E0E7FF",
+              200: "#C7D2FE",
+              300: "#A5B4FC",
+              400: "#818CF8",
+              500: "#6366F1",
+              600: "#4F46E5",
+              700: "#4338CA",
+              800: "#3730A3",
+              900: "#312E81"
+            },
+          },
+          boxShadow: {
+            soft: "0 10px 30px -12px rgba(0,0,0,.25)",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    /* Scroll reveal utility: start hidden */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    [data-reveal].show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Theme bootstrap: prevent flash of wrong theme -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem("theme");
+      const mql = window.matchMedia("(prefers-color-scheme: dark)");
+      const dark = stored ? stored === "dark" : mql.matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
+</head>
+
+<body class="h-full bg-white text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 font-inter">
+  <!-- Sticky Nav -->
+  <header
+    class="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/80 backdrop-blur dark:border-neutral-800/70 dark:bg-neutral-950/70">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 font-extrabold tracking-tight">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand/20 text-brand">A</span>
+        <span class="text-lg">Azmi.dev</span>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <!-- Theme Toggle for Mobile -->
+        <button id="themeToggleMobile"
+          class="ml-4 md:hidden inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-1.5 text-sm hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900 transition ease-in-out duration-500"
+          aria-label="Toggle color theme" aria-pressed="false">
+          🌓
+        </button>
+        
+        <!-- Menu Button for Mobile -->
+        <button id="menuBtn"
+          class="md:hidden p-2 rounded-lg border border-neutral-200 hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900 transition ease-in-out duration-500"
+          aria-label="Toggle navigation menu" aria-controls="menuPanel" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+
+      <!-- Menu for Desktop -->
+      <ul id="menu" class="hidden md:flex items-center gap-6">
+        <li>
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#about">About</a>
+        </li>
+        <li>
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#experience">Experience</a>
+        </li>
+        <li>
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#projects">Projects</a>
+        </li>
+        <li>
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#skills">Skills</a>
+        </li>
+        <li>
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#contact">Contact</a>
+        </li>
+        <li>
+          <a class="px-3 py-1.5 rounded-lg border border-brand/40 text-brand hover:bg-gradient-to-r hover:from-brand/10 hover:to-cyan-400/10 transition ease-in-out duration-500"
+            href="assets/CV_Muhamad Azmi Agil.pdf" target="_blank" rel="noopener">Lihat CV Saya</a>
+        </li>
+
+        <!-- Theme Toggle for Desktop -->
+        <button id="themeToggle"
+          class="mr-2 hidden md:inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-1.5 text-sm hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900 transition ease-in-out duration-500"
+          aria-label="Toggle color theme" aria-pressed="false" title="Toggle light/dark">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+          <span class="hidden sm:inline" id="themeText">Dark</span>
+        </button>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="menuPanel"
+      class="md:hidden hidden border-t border-neutral-200/70 bg-white dark:border-neutral-800/70 dark:bg-neutral-950">
+      <ul class="mx-auto max-w-7xl px-4 py-3 space-y-2">
+        <li class="flex items-center justify-between">
+          <a class="block py-2 hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#about">About</a>
+        </li>
+        <li>
+          <a class="block py-2 hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#experience">Experience</a>
+        </li>
+        <li>
+          <a class="block py-2 hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#projects">Projects</a>
+        </li>
+        <li>
+          <a class="block py-2 hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#skills">Skills</a>
+        </li>
+        <li>
+          <a class="block py-2 hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#contact">Contact</a>
+        </li>
+        <li>
+          <a class="inline-block mt-2 px-3 py-1.5 rounded-lg border border-brand/40 text-brand hover:bg-gradient-to-r hover:from-brand/10 hover:to-cyan-400/10 transition ease-in-out duration-500"
+            href="assets/CV_Muhamad Azmi Agil.pdf" target="_blank" rel="noopener">Lihat CV Saya</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main id="home" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Hero -->
+    <section class="pt-16 md:pt-24 pb-10 md:pb-20 grid md:grid-cols-2 items-center gap-10">
+      <div class="space-y-6" data-reveal>
+        <p class="text-brand/80 text-sm tracking-widest uppercase">
+          IT Enthusiast
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+          Hi, I’m <span class="text-brand">Azmi</span>.<br class="hidden sm:block" />
+          I focus on Database, Cloud, and QA.
+        </h1>
+        <p id="typing" class="text-neutral-600 dark:text-neutral-400 min-h-[1.75rem]"></p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="#experience"
+            class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand to-cyan-400 text-white font-semibold hover:opacity-90 shadow-soft transition ease-in-out duration-500">Lihat
+            Pengalaman</a>
+          <a href="#contact"
+            class="px-5 py-2.5 rounded-xl border border-neutral-200 hover:bg-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-900 transition ease-in-out duration-500">Hubungi
+            Saya</a>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-3 py-1 dark:border-neutral-800">✔
+            Available for freelance</span>
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-3 py-1 dark:border-neutral-800">⚡
+            Fast delivery</span>
+        </div>
+      </div>
+      <div class="relative aspect-square w-full max-w-sm md:max-w-md mx-auto" data-reveal>
+        <div
+          class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand/20 via-transparent to-cyan-300/0 blur-2xl">
+        </div>
+        <!-- Kolom kanan: wadah foto -->
+        <div class="relative aspect-square w-full max-w-sm md:max-w-md mx-auto" data-reveal>
+          <div
+            class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand/20 via-transparent to-cyan-300/0 blur-2xl">
+          </div>
+          <div class="relative flex justify-center md:justify-end md:pr-6">
+            <img src="assets/azmi.png" alt="Foto Azmi — IT Enthusiast"
+              class="w-72 h-96 md:w-[24rem] md:h-[30rem] object-cover rounded-2xl transition duration-500 ml-0 md:ml-12 hover:scale-[1.02] hover:shadow-[0_8px_28px_-8px_rgba(99,102,241,.35)]"
+              width="384" height="480" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="py-14 md:py-20 border-t border-neutral-200 dark:border-neutral-900">
+  <div class="grid md:grid-cols-3 gap-10">
+    <div class="md:col-span-1 text-center md:text-left" data-reveal>
+      <h2 class="text-2xl font-bold">About Me</h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">Fokus: Database • Cloud • QA • DevOps</p>
+      <img src="https://images.unsplash.com/vector-1756773357488-d9a2794b1845?auto=format&fit=crop&w=256&q=80"
+        alt="3D illustration related to databases and cloud computing"
+        class="mt-6 w-32 h-32 sm:w-36 sm:h-36 object-contain mx-auto md:mx-0" width="128" height="128"
+        loading="lazy" decoding="async" />
+    </div>
+    <ol class="md:col-span-2 space-y-5">
+      <li class="relative pl-10" data-reveal>
+        <span
+          class="absolute left-0 top-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/20 text-brand">📚</span>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+          Sebagai mahasiswa, saya sangat tertarik untuk mendalami dunia <strong>Database</strong>, khususnya dalam penggunaan
+          <strong>SQL</strong> untuk manajemen dan pengolahan data. Saya belajar dasar-dasar seperti query, optimasi,
+          dan normalisasi untuk membuat sistem database yang efisien.
+        </div>
+      </li>
+      <li class="relative pl-10" data-reveal>
+        <span
+          class="absolute left-0 top-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/20 text-brand">💻</span>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+          Dalam bidang <strong>Cloud Computing</strong>, saya sedang mempelajari konsep dasar tentang infrastruktur cloud
+          dan bagaimana menggunakan platform seperti <strong>AWS</strong> dan <strong>Google Cloud</strong> untuk
+          merancang aplikasi yang dapat diskalakan dan mudah diakses.
+        </div>
+      </li>
+      <li class="relative pl-10" data-reveal>
+        <span
+          class="absolute left-0 top-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/20 text-brand">🧪</span>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+          Saya juga sedang mengembangkan keterampilan di bidang <strong>Quality Assurance (QA)</strong>, dengan fokus pada
+          <strong>pengujian API</strong> menggunakan alat seperti <strong>Postman</strong>. Saya belajar bagaimana
+          melakukan pengujian otomatisasi dan memastikan API berjalan dengan baik sebelum diterapkan dalam aplikasi.
+        </div>
+      </li>
+      <li class="relative pl-10" data-reveal>
+        <span
+          class="absolute left-0 top-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/20 text-brand">🚀</span>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+          Di sisi <strong>DevOps</strong>, saya mempelajari dasar-dasar menggunakan alat seperti <strong>Docker</strong> untuk
+          membuat aplikasi lebih portabel dan mudah di-deploy. Saya juga tertarik dengan konsep <strong>CI/CD</strong> untuk
+          meningkatkan efisiensi dalam pengembangan perangkat lunak.
+        </div>
+      </li>
+      <li class="relative pl-10" data-reveal>
+        <span
+          class="absolute left-0 top-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand/20 text-brand">🖥️</span>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+          Sebelumnya, saya telah mempelajari beberapa bahasa pemrograman seperti <strong>PHP</strong>, <strong>Java</strong>, dan
+          <strong>Python</strong>, yang menjadi dasar untuk mengembangkan aplikasi dan memahami logika pemrograman. Saya terus
+          memperdalam keterampilan saya di bidang ini sambil mengembangkan kemampuan saya di bidang lainnya.
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+    <!-- Experience -->
+    <section id="experience" class="py-14 md:py-20">
+      <div class="flex items-end justify-between gap-4 mb-8" data-reveal>
+        <h2 class="text-2xl font-bold">Experience</h2>
+        <span class="text-sm text-neutral-600 dark:text-neutral-400">2024 – Sekarang</span>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- MAMACARE Card -->
+        <article
+          class="group rounded-2xl border border-neutral-200 overflow-hidden dark:border-neutral-800 transition ease-in-out duration-500 hover:shadow-xl hover:border-brand/40 hover:scale-[1.01]"
+          data-reveal>
+          <div class="p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3
+                class="font-semibold transition ease-in-out duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-cyan-400">
+                MAMACARE — Project Lead
+              </h3>
+              <span class="text-xs rounded-lg text-white px-2 py-1 bg-gradient-to-r from-brand to-cyan-400">Health
+                Tech</span>
+            </div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              Aplikasi pendamping digital kesehatan ibu hamil.
+            </p>
+            <ul class="list-disc pl-5 space-y-1 text-sm">
+              <li>Memimpin tim pengembangan end-to-end.</li>
+              <li>
+                Mengelola alur kerja dengan <strong>Agile–Kanban</strong>.
+              </li>
+              <li>
+                Kontribusi pada <em>website</em>: perancangan & implementasi
+                fitur utama.
+              </li>
+              <li>
+                Tools: <strong>Git</strong>, <strong>Figma</strong>,
+                <strong>VS Code</strong>, <strong>MySQL</strong>.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Placeholder extra card (optional future project) -->
+        <article
+          class="group rounded-2xl border border-dashed border-neutral-200 dark:border-neutral-800 p-5 flex items-center justify-center text-sm text-neutral-500"
+          data-reveal>
+          Project berikutnya datang segera ✨
+        </article>
+      </div>
+    </section>
+    <!-- Projects (Showcase) -->
+    <section id="projects" class="py-14 md:py-20 border-t border-neutral-200 dark:border-neutral-900">
+      <div class="flex items-end justify-between gap-4 mb-8" data-reveal>
+        <h2 class="text-2xl font-bold">Projects</h2>
+        <a href="https://github.com/Azmi-Student" target="_blank" rel="noopener"
+          class="text-sm text-neutral-600 hover:text-brand dark:text-neutral-400">Lihat semua di GitHub →</a>
+      </div>
+
+      <!-- Tag Filter -->
+      <div id="proj-tags" class="flex flex-wrap items-center gap-2 mb-4" data-reveal>
+        <button type="button" class="proj-tag px-3 py-1.5 rounded-xl border border-neutral-300 dark:border-neutral-800"
+          data-tag="all" aria-pressed="false">
+          All
+        </button>
+        <button type="button" class="proj-tag px-3 py-1.5 rounded-xl border border-neutral-300 dark:border-neutral-800"
+          data-tag="frontend" aria-pressed="false">
+          Frontend
+        </button>
+        <button type="button" class="proj-tag px-3 py-1.5 rounded-xl border border-neutral-300 dark:border-neutral-800"
+          data-tag="backend" aria-pressed="false">
+          Backend
+        </button>
+        <button type="button" class="proj-tag px-3 py-1.5 rounded-xl border border-neutral-300 dark:border-neutral-800"
+          data-tag="fullstack" aria-pressed="false">
+          Full-stack
+        </button>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project: MAMACARE -->
+        <article
+          class="group rounded-2xl border border-neutral-200 overflow-hidden dark:border-neutral-800 transition ease-in-out duration-500 hover:shadow-xl hover:border-brand/40 hover:scale-[1.01]"
+          data-reveal data-tags="frontend,backend">
+          <a href="#" class="block" aria-label="MAMACARE">
+            <img src="assets/mamacare.png" alt="Dashboard MAMACARE — halaman beranda"
+              class="h-44 w-full object-cover object-top transition group-hover:opacity-90" width="800" height="176"
+              loading="lazy" decoding="async" />
+
+            <div class="p-5 space-y-2">
+              <h3
+                class="font-semibold transition ease-in-out duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-cyan-400">
+                MAMACARE
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Aplikasi pendamping kesehatan ibu hamil — perancangan & fitur inti.
+              </p>
+              <div class="flex items-center gap-3 pt-1">
+                <span class="text-xs rounded-lg text-white px-2 py-1 bg-gradient-to-r from-brand to-cyan-400">Frontend,
+                  Backend</span>
+                <span class="text-xs rounded-lg bg-neutral-100 px-2 py-1 dark:bg-neutral-800">2024–Now</span>
+              </div>
+            </div>
+          </a>
+          <div class="px-5 pb-5 flex items-center gap-3">
+            <a class="text-sm hover:text-brand transition ease-in-out duration-500" href="#" target="_blank"
+              rel="noopener">GitHub</a>
+            <span class="text-neutral-300 dark:text-neutral-700">•</span>
+            <a class="text-sm hover:text-brand transition ease-in-out duration-500" href="#" target="_blank"
+              rel="noopener">Live Demo</a>
+          </div>
+        </article>
+
+        <!-- Project: PORTFOLIO (Frontend) -->
+        <article
+          class="group rounded-2xl border border-neutral-200 overflow-hidden dark:border-neutral-800 transition ease-in-out duration-500 hover:shadow-xl hover:border-brand/40 hover:scale-[1.01]"
+          data-reveal data-tags="frontend">
+          <a href="#" class="block" aria-label="PORTFOLIO">
+            <!-- Ganti gambar di sini dengan gambar baru -->
+            <img class="h-44 w-full object-cover transition ease-in-out duration-500 group-hover:opacity-90"
+              src="assets/portofolio.png" alt="Preview Portfolio" width="800" height="176" loading="lazy" />
+            <div class="p-5 space-y-2">
+              <h3
+                class="font-semibold transition ease-in-out duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-cyan-400">
+                PORTFOLIO
+              </h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                Situs portofolio responsif dengan toggle light/dark dan animasi.
+              </p>
+              <div class="flex items-center gap-3 pt-1">
+                <span
+                  class="text-xs rounded-lg text-white px-2 py-1 bg-gradient-to-r from-brand to-cyan-400">Frontend</span>
+                <span class="text-xs rounded-lg bg-neutral-100 px-2 py-1 dark:bg-neutral-800">2025</span>
+              </div>
+            </div>
+          </a>
+          <div class="px-5 pb-5 flex items-center gap-3">
+            <a class="text-sm hover:text-brand transition ease-in-out duration-500" href="#" target="_blank"
+              rel="noopener">GitHub</a>
+            <span class="text-neutral-300 dark:text-neutral-700">•</span>
+            <a class="text-sm hover:text-brand transition ease-in-out duration-500" href="#" target="_blank"
+              rel="noopener">Live Demo</a>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills" class="py-14 md:py-20 border-t border-neutral-200 dark:border-neutral-900">
+      <h2 class="text-2xl font-bold mb-8" data-reveal>Skills</h2>
+
+      <!-- Tools -->
+      <div class="mb-6" data-reveal>
+        <h3 class="font-semibold mb-3">Tools</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">VS Code</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Git</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Docker</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">NetBeans</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Oracle</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Figma</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Microsoft Office</span>
+        </div>
+      </div>
+
+      <!-- Programming & Development -->
+      <div class="mb-6" data-reveal>
+        <h3 class="font-semibold mb-3">Programming & Development</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Java</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Python</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">PHP</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Dart</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">HTML</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">CSS</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Laravel</span>
+        </div>
+      </div>
+
+      <!-- Database & Cloud -->
+      <div class="mb-6" data-reveal>
+        <h3 class="font-semibold mb-3">Database & Cloud</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">MySQL</span>
+          <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Basic Cloud
+            Computing</span>
+        </div>
+      </div>
+
+      <!-- Soft Skills & Languages -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-3" data-reveal>
+          <h3 class="font-semibold">Soft Skills</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Analytical
+              Thinking</span>
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Problem
+              Solving</span>
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Teamwork</span>
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Project
+              Management</span>
+          </div>
+        </div>
+        <div class="space-y-3" data-reveal>
+          <h3 class="font-semibold">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">Bahasa Indonesia
+              (Native)</span>
+            <span class="rounded-xl border border-neutral-200 px-3 py-1.5 dark:border-neutral-800">English
+              (Basic)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-14 md:py-20 text-gray-800 dark:text-white">
+      <h2 class="text-3xl font-bold text-center mb-8" data-reveal>Contact Me</h2>
+
+      <p class="text-center mb-4">Buka untuk kolaborasi, freelance, dan proyek jangka panjang.</p>
+
+      <!-- Contact Icons -->
+      <div class="flex justify-center gap-8 mb-8">
+        <!-- Email Icon -->
+        <a href="mailto:muhamad.azmiagil@gmail.com" target="_blank"
+          class="flex items-center justify-center w-16 h-16 bg-white text-gray-700 rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300">
+          <img src="assets/gmail.png" alt="Gmail" class="w-8 h-8" />
+        </a>
+
+        <!-- GitHub Icon -->
+        <a href="https://github.com/Azmi-Student" target="_blank"
+          class="flex items-center justify-center w-16 h-16 bg-white text-gray-700 rounded-full shadow-lg hover:bg-gray-800 hover:text-white transition-all duration-300">
+          <img src="assets/github.png" alt="GitHub" class="w-8 h-8" />
+        </a>
+
+        <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/muhamad-azmi-453658370/" target="_blank"
+          class="flex items-center justify-center w-16 h-16 bg-white text-gray-700 rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition-all duration-300">
+          <img src="assets/linkedin.png" alt="LinkedIn" class="w-8 h-8" />
+        </a>
+
+        <!-- Instagram Icon -->
+        <a href="https://www.instagram.com/azmiii10_" target="_blank"
+          class="flex items-center justify-center w-16 h-16 bg-white text-gray-700 rounded-full shadow-lg hover:bg-pink-500 hover:text-white transition-all duration-300">
+          <img src="assets/instagram.png" alt="Instagram" class="w-8 h-8" />
+        </a>
+      </div>
+
+      <!-- Optional Call to Action -->
+      <div class="text-center">
+        <a href="mailto:muhamad.azmiagil@gmail.com"
+          class="inline-block px-6 py-3 bg-gradient-to-r from-brand to-cyan-400 text-white rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300">
+          Send Me a Message
+        </a>
+      </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer
+      class="py-10 border-t border-neutral-200 text-sm text-neutral-600 dark:border-neutral-900 dark:text-neutral-500">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© <span id="y"></span> Azmi. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a class="hover:text-brand focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 transition ease-in-out duration-500"
+            href="#home">Kembali ke atas ↑</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JSON-LD for SEO -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Azmi",
+        "jobTitle": "IT Enthusiast",
+        "url": "https://Azmi.dev",
+        "sameAs": [
+          "https://github.com/Azmi-Student",
+          "https://www.linkedin.com/in/muhamad-azmi-453658370/"
+        ],
+        "knowsAbout": [
+          "Database",
+          "Cloud Computing",
+          "Quality Assurance",
+          "Web Development",
+          "Mobile Development"
+        ]
+      }
+    </script>
+
+  <!-- JS: theme toggle, mobile menu, year, scroll reveal -->
+  <script>
+    const y = document.getElementById("y");
+    y.textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById("menuBtn");
+    const panel = document.getElementById("menuPanel");
+    menuBtn?.addEventListener("click", () => {
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn.setAttribute("aria-expanded", String(!expanded));
+      panel.classList.toggle("hidden");
+      panel
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => {
+            panel.classList.add("hidden");
+            menuBtn.setAttribute("aria-expanded", "false");
+          })
+        );
+    });
+
+    function setTheme(mode) {
+      const root = document.documentElement;
+      if (mode === "dark") root.classList.add("dark");
+      else root.classList.remove("dark");
+      localStorage.setItem("theme", mode);
+      const isDark = mode === "dark";
+      document.getElementById("themeIcon").innerHTML = isDark ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1zm0 9.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7.5-3.5a1 1 0 0 1-1 1H17a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1zM7 12a1 1 0 1 1-1-1H7a1 1 0 1 1 0 2H6a1 1 0 0 1 1-1zm9.95 5.657a1 1 0 0 1-1.414 0l-1.06-1.06a1 1 0 0 1 1.414-1.415l1.06 1.06a1 1 0 0 1 0 1.415zM9.525 8.11a1 1 0 1 1-1.414-1.414L9.17 5.638a1 1 0 1 1 1.414 1.414L9.525 8.11zM5.64 14.828a1 1 0 0 1 1.415-1.414l1.06 1.06a1 1 0 1 1-1.414 1.415l-1.06-1.06zM14.83 9.17a1 1 0 1 1 1.414-1.414l1.06 1.06a1 1 0 1 1-1.414 1.414l-1.06-1.06zM12 17a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V18a1 1 0 0 1 1-1z"/></svg>` : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3c.2 0 .4.01.6.03a.75.75 0 0 1 .39 1.34A6.5 6.5 0 0 0 18.5 15.8a.75.75 0 0 1 1.34.39c.01.2.02.41.02.61z"/></svg>`;
+      document.getElementById("themeText").textContent = isDark ? "Light" : "Dark";
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    }
+
+    // Bind desktop + mobile toggles
+    document
+      .getElementById("themeToggle")
+      ?.addEventListener("click", (e) => { toggleTheme(); const btn = e.currentTarget; btn.setAttribute("aria-pressed", String(!(btn.getAttribute("aria-pressed") === "true"))); });
+    document
+      .getElementById("themeToggleMobile")
+      ?.addEventListener("click", (e) => { toggleTheme(); const btn = e.currentTarget; btn.setAttribute("aria-pressed", String(!(btn.getAttribute("aria-pressed") === "true"))); });
+
+    // Sync initial label state on load
+    (function () {
+      const isDark = document.documentElement.classList.contains("dark");
+      document.getElementById("themeIcon").innerHTML = isDark ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1zm0 9.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7.5-3.5a1 1 0 0 1-1 1H17a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1zM7 12a1 1 0 1 1-1-1H7a1 1 0 1 1 0 2H6a1 1 0 0 1 1-1zm9.95 5.657a1 1 0 0 1-1.414 0l-1.06-1.06a1 1 0 0 1 1.414-1.415l1.06 1.06a1 1 0 0 1 0 1.415zM9.525 8.11a1 1 0 1 1-1.414-1.414L9.17 5.638a1 1 0 1 1 1.414 1.414L9.525 8.11zM5.64 14.828a1 1 0 0 1 1.415-1.414l1.06 1.06a1 1 0 1 1-1.414 1.415l-1.06-1.06zM14.83 9.17a1 1 0 1 1 1.414-1.414l1.06 1.06a1 1 0 1 1-1.414 1.414l-1.06-1.06zM12 17a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V18a1 1 0 0 1 1-1z"/></svg>` : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3c.2 0 .4.01.6.03a.75.75 0 0 1 .39 1.34A6.5 6.5 0 0 0 18.5 15.8a.75.75 0 0 1 1.34.39c.01.2.02.41.02.61z"/></svg>`;
+      document.getElementById("themeText").textContent = isDark ? "Light" : "Dark";
+      const t1 = document.getElementById("themeToggle"); if (t1) t1.setAttribute("aria-pressed", String(isDark));
+      const t2 = document.getElementById("themeToggleMobile"); if (t2) t2.setAttribute("aria-pressed", String(isDark));
+    })();
+
+    // Scroll reveal (stagger per section)
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = Number(el.getAttribute("data-reveal-delay") || 0);
+            setTimeout(() => el.classList.add("show"), delay);
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll("[data-reveal]").forEach((el) => {
+      const section = el.closest("section");
+      const siblings = section
+        ? [...section.querySelectorAll("[data-reveal]")]
+        : [];
+      const idx = siblings.indexOf(el);
+      el.setAttribute("data-reveal-delay", String(idx * 60));
+      io.observe(el);
+    });
+
+    // ---- Projects Tag Filter ----
+    (function () {
+      const cards = [...document.querySelectorAll("#projects [data-tags]")];
+      const tagBtns = [...document.querySelectorAll("#proj-tags .proj-tag")];
+
+      function setActive(tag) {
+        tagBtns.forEach((b) => {
+          const active = b.dataset.tag === tag;
+          b.classList.toggle("bg-brand/20", active);
+          b.classList.toggle("text-brand", active);
+          b.setAttribute("aria-pressed", String(active));
+        });
+      }
+      (function () {
+        const cur = location.hash || "#about";
+        const link = document.querySelector(`nav a[href="${cur}"]`);
+        link?.setAttribute("aria-current", "page");
+      })();
+
+      function apply(tag) {
+        cards.forEach((c) => {
+          const tags = (c.getAttribute("data-tags") || "").toLowerCase();
+          c.style.display = tag === "all" || tags.includes(tag) ? "" : "none";
+        });
+        setActive(tag);
+      }
+
+      // bind
+      tagBtns.forEach((b) =>
+        b.addEventListener("click", () => apply(b.dataset.tag))
+      );
+
+      // default ke ['all']
+      apply("all");
+    })();
+
+    // ---- Nav aria-current (indikasi link aktif setelah klik) ----
+    document.querySelectorAll('nav a[href^="#"]').forEach((a) => {
+      a.addEventListener("click", () => {
+        document
+          .querySelectorAll("nav a[aria-current]")
+          .forEach((n) => n.removeAttribute("aria-current"));
+        a.setAttribute("aria-current", "page");
+      });
+    });
+
+    // ---- Copy email ----
+    document
+      .getElementById("copyMail")
+      ?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("hello@Azmi.dev");
+          const btn = document.getElementById("copyMail");
+          const old = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = old), 1200);
+        } catch (e) {
+          alert("Gagal menyalin email");
+        }
+      });
+
+    // Typing effect (Hero)
+    (function () {
+      const el = document.getElementById("typing");
+      if (!el) return;
+      const lines = [
+        "Fokus: Database • Cloud • QA",
+        "Dasar: PHP • Python • Java",
+        "Siap berkontribusi dalam tim profesional",
+      ];
+      let li = 0,
+        ci = 0,
+        erase = false;
+      function tick() {
+        const text = lines[li];
+        el.textContent = erase ? text.slice(0, ci--) : text.slice(0, ci++);
+        if (!erase && ci > text.length + 8) erase = true;
+        if (erase && ci < 0) {
+          erase = false;
+          li = (li + 1) % lines.length;
+        }
+        setTimeout(tick, erase ? 40 : 70);
+      }
+      tick();
+    })();
+  </script>
+  <!-- Konten halaman lainnya -->
+
+  <!-- Tombol Kembali ke Atas -->
+  <button id="scrollToTop"
+    class="fixed bottom-10 right-10 p-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-full shadow-lg opacity-0 transition-all duration-300 transform hover:scale-110">
+    ↑
+  </button>
+
+  <script>
+    // Ambil tombol
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    // Menyembunyikan tombol secara default
+    scrollToTopBtn.style.visibility = "hidden";
+
+    // Menambahkan event listener untuk mendeteksi scroll
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 100) {
+        scrollToTopBtn.style.visibility = "visible";
+        scrollToTopBtn.style.opacity = "1";
+      } else {
+        scrollToTopBtn.style.visibility = "hidden";
+        scrollToTopBtn.style.opacity = "0";
+      }
+    });
+
+    // Menambahkan fungsi untuk scroll ke atas saat tombol diklik
+    scrollToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <style>
+    /* Styling untuk tombol Kembali ke Atas */
+    #scrollToTop {
+      font-size: 1.5rem;
+      cursor: pointer;
+      /* Tambahkan border-radius agar bulat */
+      border-radius: 50%;
+    }
+
+    /* Efek Hover pada tombol */
+    #scrollToTop:hover {
+      background-color: #2563eb;
+      /* Ganti dengan warna hover yang diinginkan */
+      transform: scale(1.1);
+    }
+
+    /* Media query untuk responsivitas */
+    @media (max-width: 768px) {
+      #scrollToTop {
+        font-size: 1.2rem;
+        padding: 3px;
+      }
+    }
+  </style>
+
+</body>
+
+</body>
+
+</html>
